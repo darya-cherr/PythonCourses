@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">PythonСourses</string>
+    <string name="sign_in">Войти с google</string>
 </resources>

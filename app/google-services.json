@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "354103113960",
+    "project_id": "pythoncourses-9698e",
+    "storage_bucket": "pythoncourses-9698e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:354103113960:android:1cc225efa550ff91c6315d",
+        "android_client_info": {
+          "package_name": "com.example.pythonourses"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "354103113960-70m5vgbmu197jd348mi1rrsok1f44vpl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pythonourses",
+            "certificate_hash": "9837fc28ba07a9a0ba40de12f680f1acb0b293f3"
+          }
+        },
+        {
+          "client_id": "354103113960-q0tl5702kup89cksj9k2bc0mot7t7fgr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA899jiOJKjA81hcw4KL73PWCWdVBG9LM4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "354103113960-q0tl5702kup89cksj9k2bc0mot7t7fgr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
