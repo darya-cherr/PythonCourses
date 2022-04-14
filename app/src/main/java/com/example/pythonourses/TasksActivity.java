@@ -11,40 +11,35 @@ import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.example.pythonourses.Parser.ParseItem;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Objects;
-
-public class LectureTextActivity extends AppCompatActivity {
+public class TasksActivity extends AppCompatActivity {
 
     private TextView topic, lectureText;
     private ImageButton backButton;
     private StringBuilder SBtext;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lecture_text);
+        setContentView(R.layout.activity_tasks);
 
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_FULLSCREEN);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         init();
+
     }
 
     public void init(){
-        topic = findViewById(R.id.lecture_topic);
-        backButton = findViewById(R.id.lecture_back_btn);
-        lectureText = findViewById(R.id.lecture_textview);
+        topic = findViewById(R.id.task_topic);
+        backButton = findViewById(R.id.task_back_btn);
+        lectureText = findViewById(R.id.task_textview);
 
         topic.setText(getIntent().getStringExtra("topic"));
-        /*url = getIntent().getStringExtra("lectureUrl");*/
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,28 +50,6 @@ public class LectureTextActivity extends AppCompatActivity {
 
         Content content = new Content();
         content.execute();
-
-    }
-
-    private StringBuilder parseData(String url){
-        StringBuilder parsedText = new StringBuilder();
-
-        try{
-            Document document = Jsoup.connect(url).get();
-
-            Elements data = document.getElementsByClass("articleText").select("p");
-            int size = data.size();
-            for (int i = 0; i < size; i++){
-                String text = data
-                        .eq(i)
-                        .text();
-                parsedText.append(text);
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-            Log.d("MyLog", e.getMessage());
-        }
-        return parsedText;
     }
 
     private class Content extends AsyncTask<Void, Void, Void> {
@@ -107,14 +80,14 @@ public class LectureTextActivity extends AppCompatActivity {
                 String detailUrl = getIntent().getStringExtra("lectureUrl");
                 Document document = Jsoup.connect(detailUrl).get();
 
-                Elements data = document.getElementsByClass("articleText").select("p, div");
-                data.remove(data.last());
+                Elements data = document.getElementsByClass("mYVXT").select("span");
                 int size = data.size();
                 for (int i = 0; i < size; i++){
                     String text = data
                             .eq(i)
                             .text();
-                    SBtext.append(text);
+                    Log.d("MyLog", text);
+                    SBtext.append(text).append("\n");
                 }
             }catch (Exception e){
                 e.printStackTrace();
@@ -123,6 +96,4 @@ public class LectureTextActivity extends AppCompatActivity {
             return null;
         }
     }
-
-
 }

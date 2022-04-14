@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PythonСourses">
         <activity
+            android:name=".TasksActivity"
+            android:exported="false" />
+        <activity
             android:name=".LectureTextActivity"
             android:exported="false" />
         <activity

@@ -71,7 +71,7 @@ public class LecturesFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        parseAdapter = new ParseAdapter(topics, getContext());
+        parseAdapter = new ParseAdapter(topics, getContext(), "lectures");
         recyclerView.setAdapter(parseAdapter);
 
         return view;

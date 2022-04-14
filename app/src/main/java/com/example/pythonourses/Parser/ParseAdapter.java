@@ -15,6 +15,7 @@ import com.example.pythonourses.LecturesActivity;
 import com.example.pythonourses.LecturesFragment;
 import com.example.pythonourses.MainActivity;
 import com.example.pythonourses.R;
+import com.example.pythonourses.TasksActivity;
 
 import java.util.ArrayList;
 
@@ -22,10 +23,12 @@ public class ParseAdapter extends RecyclerView.Adapter<ParseAdapter.ViewHolder> 
 
     public ArrayList<ParseItem> parseItems;
     private Context context;
+    private String flag;
 
-    public ParseAdapter(ArrayList<ParseItem> parseItems, Context context){
+    public ParseAdapter(ArrayList<ParseItem> parseItems, Context context, String flag){
         this.parseItems = parseItems;
         this.context = context;
+        this.flag = flag;
     }
 
     @NonNull
@@ -64,20 +67,32 @@ public class ParseAdapter extends RecyclerView.Adapter<ParseAdapter.ViewHolder> 
 
             int position = getAdapterPosition();
 
-            if(context instanceof MainActivity){
-                ArrayList<ParseItem> lectures = LecturesFragment.getLecturesArray(position);
-                Intent intent = new Intent(context, LecturesActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
-                intent.putExtra("topic", parseItems.get(position).getTitle());
-                intent.putExtra("lectures", lectures);
-                context.startActivity(intent);
+            if (flag.contains("lectures")) {
+
+                if (context instanceof MainActivity) {
+                    ArrayList<ParseItem> lectures = LecturesFragment.getLecturesArray(position);
+                    Intent intent = new Intent(context, LecturesActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+                    intent.putExtra("topic", parseItems.get(position).getTitle());
+                    intent.putExtra("lectures", lectures);
+                    context.startActivity(intent);
+                } else {
+                    if (context instanceof LecturesActivity) {
+                        ParseItem parseItem = parseItems.get(position);
+                        Intent intent = new Intent(context, LectureTextActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+                        intent.putExtra("topic", parseItem.getTitle());
+                        intent.putExtra("lectureUrl", parseItem.getLectureUrl());
+                        context.startActivity(intent);
+                    }
+                }
             }else{
-                if(context instanceof LecturesActivity){
+                if (flag.contains("tasks")){
                     ParseItem parseItem = parseItems.get(position);
-                    Intent intent = new Intent(context, LectureTextActivity.class);
+                    Intent intent = new Intent(context, TasksActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
                     intent.putExtra("topic", parseItem.getTitle());
-                    intent.putExtra("lectureUrl",parseItem.getLectureUrl());
+                    intent.putExtra("lectureUrl", parseItem.getLectureUrl());
                     context.startActivity(intent);
                 }
             }

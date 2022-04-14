@@ -40,7 +40,7 @@ public class LecturesActivity extends AppCompatActivity {
         lectures = (ArrayList<ParseItem>) getIntent().getSerializableExtra("lectures");
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        parseAdapter = new ParseAdapter(lectures, this);
+        parseAdapter = new ParseAdapter(lectures, this, "lectures");
         recyclerView.setAdapter(parseAdapter);
 
         backButton.setOnClickListener(new View.OnClickListener() {
