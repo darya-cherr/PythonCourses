@@ -4,6 +4,6 @@
     <string name="home">Главная</string>
     <string name="tasks">Лабораторные</string>
     <string name="lectures">Лекции</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="item_title">Title</string>
 </resources>
