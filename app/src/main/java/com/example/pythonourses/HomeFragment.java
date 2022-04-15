@@ -7,9 +7,19 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.squareup.picasso.Picasso;
+
 
 public class HomeFragment extends Fragment {
 
+
+    private ImageView userImg;
+    private TextView userName, userEmail;
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -42,6 +52,20 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+        GoogleSignInAccount signInAccount = GoogleSignIn.getLastSignedInAccount(view.getContext());
+
+        userImg = view.findViewById(R.id.user_img);
+        userName = view.findViewById(R.id.user_name);
+        userEmail = view.findViewById(R.id.user_email);
+
+        if (signInAccount != null){
+            Picasso.get().load(signInAccount.getPhotoUrl()).into(userImg);
+            userName.setText(signInAccount.getDisplayName());
+            userEmail.setText(signInAccount.getEmail());
+        }
+
+        return view;
     }
 }
