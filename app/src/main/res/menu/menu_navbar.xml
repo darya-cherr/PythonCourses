@@ -8,6 +8,7 @@
         app:cnb_iconColor="@color/blue"
         app:cnb_backgroundColor="@color/white"
         app:cnb_textColor="@color/blue"
+        app:cnb_unselectedColor="@color/white"
         android:title="@string/home"
         />
 
@@ -16,6 +17,7 @@
         app:cnb_iconColor="@color/blue"
         app:cnb_backgroundColor="@color/white"
         app:cnb_textColor="@color/blue"
+        app:cnb_unselectedColor="@color/white"
         android:title="@string/tasks"
         />
 
@@ -24,6 +26,7 @@
         app:cnb_iconColor="@color/blue"
         app:cnb_backgroundColor="@color/white"
         app:cnb_textColor="@color/blue"
+        app:cnb_unselectedColor="@color/white"
         android:title="@string/lectures"
         />
 </menu>

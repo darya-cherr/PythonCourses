@@ -21,7 +21,7 @@
             android:layout_height="80dp"
             android:layout_margin="10dp"
             app:cardCornerRadius="20dp"
-            android:backgroundTint="@color/yellow">
+            android:backgroundTint="@color/blue">
 
             <TextView
                 android:id="@+id/item_number"
@@ -30,7 +30,7 @@
                 android:fontFamily="@font/basic"
                 android:layout_gravity="center"
                 android:textAlignment="center"
-                android:textColor="@color/blue"
+                android:textColor="@color/white"
                 android:textSize="60sp" />
         </androidx.cardview.widget.CardView>
 

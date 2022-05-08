@@ -107,7 +107,7 @@ public class LectureTextActivity extends AppCompatActivity {
                 String detailUrl = getIntent().getStringExtra("lectureUrl");
                 Document document = Jsoup.connect(detailUrl).get();
 
-                Elements data = document.getElementsByClass("articleText").select("p, div");
+                Elements data = document.getElementsByClass("item center menC").select("p");
                 data.remove(data.last());
                 int size = data.size();
                 for (int i = 0; i < size; i++){

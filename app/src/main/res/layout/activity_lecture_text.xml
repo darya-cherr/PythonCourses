@@ -18,7 +18,7 @@
             android:layout_width="60dp"
             android:layout_height="match_parent"
             android:background="@drawable/ic_baseline_arrow_left_24"
-            android:backgroundTint="@color/blue"/>
+            android:backgroundTint="@color/white"/>
 
         <TextView
             android:id="@+id/lecture_topic"
@@ -28,7 +28,7 @@
             android:layout_gravity="center"
             android:fontFamily="@font/basic"
             android:textSize="16sp"
-            android:textColor="@color/blue"/>
+            android:textColor="@color/white"/>
     </LinearLayout>
 
     <ScrollView
